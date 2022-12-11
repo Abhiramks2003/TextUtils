@@ -3,14 +3,14 @@ import React, { useState } from 'react'
 export default function TextForm(props) {
 
     const handleUpClick = () => {
-        console.log("Uppercase was clicked " + text)
+
         let newText = text.toUpperCase();
         setText(newText);
         props.showAlert("Converted to Uppercase!", "success")
     }
 
     const handleLowClick = () => {
-        console.log("Lowercase was clicked " + text);
+
         let lowText = text.toLowerCase();
         setText(lowText);
         props.showAlert("Converted to Lowercase!", "success")
@@ -18,16 +18,16 @@ export default function TextForm(props) {
     const clearText = () => {
         let newText = '';
         setText(newText);
-        console.log("text was cleared");
+
         props.showAlert("Text is cleared!", "success")
     }
     const handleOnChange = (event) => {
-        console.log("On change");
+
         setText(event.target.value)
     }
 
     const copyText = () => {
-        console.log("text is copied");
+
         var copy = document.getElementById('myBox');
         copy.select();
         navigator.clipboard.writeText(copy.value);
@@ -41,7 +41,7 @@ export default function TextForm(props) {
 
     const count = () => {
         if (text.length > 0) {
-            return text.trim().split(/[ ]+/).length;
+            return text.trim().split(/\s+/).length;
         }
         else {
             return 0;
@@ -51,7 +51,6 @@ export default function TextForm(props) {
 
     const [text, setText] = useState('');
 
-    //setText("Hello guys,this is textUtils");
     return (
         <>
             <div className='container'>
